@@ -9,6 +9,7 @@ import Msn from './Msn';
 import SilkRoad from './SilkRoad';
 import Cmd from './Cmd';
 import Milkie from './Milkie';
+import Services from './Services';
 import cmd from 'assets/windowsIcons/cmd.png';
 import silkroad from 'assets/windowsIcons/silkroad.png';
 import msn from 'assets/windowsIcons/msn.png';
@@ -189,6 +190,13 @@ export const defaultIconState = [
     component: Milkie,
     isFocus: false,
   },
+  {
+    id: 10,
+    icon: notepadLarge,
+    title: 'Services',
+    component: Services,
+    isFocus: false,
+  },
 ];
 
 export const appSettings = {
@@ -279,6 +287,25 @@ export const appSettings = {
     defaultSize: {
       width: 660,
       height: 500,
+    },
+    defaultOffset: {
+      x: 270,
+      y: 60,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    multiInstance: true,
+  },
+  Services: {
+    header: {
+      icon: notepad,
+      title: 'Services.txt',
+    },
+    component: Services,
+    defaultSize: {
+      width: 600,
+      height: 550,
     },
     defaultOffset: {
       x: 270,
