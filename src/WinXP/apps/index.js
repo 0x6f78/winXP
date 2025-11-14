@@ -127,7 +127,7 @@ export const defaultAppState = [
       icon: cmd,
     },
     defaultSize: {
-      width: 800,
+      width: 815,
       height: 700,
     },
     defaultOffset: {
@@ -480,7 +480,7 @@ export const appSettings = {
     },
     component: DarkIRC,
     defaultSize: {
-      width: 800,
+      width: 815,
       height: 700,
     },
     defaultOffset: {
