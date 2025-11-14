@@ -13,9 +13,9 @@ export default function Services({ onClose }) {
     ██║╚██╔╝██║██║██║     ██║     ██╔═██╗ ██║██╔══╝
     ██║ ╚═╝ ██║██║███████╗███████╗██║  ██╗██║███████╗
     ╚═╝     ╚═╝╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝
-    ========================================
+    ==========================================
                   █   SERVICES   █
-    ========================================
+    ==========================================
 
     1. Web Development
        - Modern website design
@@ -35,14 +35,14 @@ export default function Services({ onClose }) {
        - 3D animation
        - Optimization
 
-    ----------------------------------------
-    For inquiries, contact me via Discord:
+    -------------------------------------------
+    For inquiries, contact via Discord or IRC
 
     https://discord.com/invite/9824xbSgcJ
 
-    ========================================
+    ==========================================
              THANK YOU FOR VISITING
-    ========================================`,
+    ==========================================`,
   );
 
   const [wordWrap, setWordWrap] = useState(false);

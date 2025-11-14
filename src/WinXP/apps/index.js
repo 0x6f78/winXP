@@ -11,6 +11,7 @@ import Cmd from './Cmd';
 import Milkie from './Milkie';
 import Services from './Services';
 import Projects from './Projects';
+import DarkIRC from './DarkIRC';
 import cmd from 'assets/windowsIcons/cmd.png';
 import silkroad from 'assets/windowsIcons/silkroad.png';
 import msn from 'assets/windowsIcons/msn.png';
@@ -79,6 +80,26 @@ export const defaultAppState = [
     zIndex: genIndex(),
   },
   {
+    component: DarkIRC,
+    header: {
+      title: 'DarkIRC',
+      icon: cmd,
+    },
+    defaultSize: {
+      width: 865,
+      height: 792,
+    },
+    defaultOffset: {
+      x: 250,
+      y: 40,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    id: genId(),
+    zIndex: genIndex(),
+  },
+  {
     component: Winamp,
     header: {
       title: 'Winamp',
@@ -138,65 +159,65 @@ export const defaultIconState = [
   },
   {
     id: 2,
-    icon: mine,
-    title: 'Minesweeper',
-    component: Minesweeper,
-    isFocus: false,
-  },
-  {
-    id: 3,
     icon: winamp,
     title: 'Winamp',
     component: Winamp,
     isFocus: false,
   },
   {
-    id: 4,
+    id: 3,
     icon: paintLarge,
     title: 'Paint',
     component: Paint,
     isFocus: false,
   },
   {
-    id: 5,
+    id: 4,
     icon: msn,
     title: 'MSN',
     component: Msn,
     isFocus: false,
   },
   {
-    id: 6,
+    id: 5,
     icon: silkroad,
     title: 'Silkroad',
     component: SilkRoad,
     isFocus: false,
   },
   {
-    id: 7,
+    id: 6,
     icon: cmd,
     title: 'BTCminer.bat',
     component: Cmd,
     isFocus: false,
   },
   {
-    id: 8,
+    id: 7,
     icon: milkie,
     title: 'Milkieverse',
     component: Milkie,
     isFocus: false,
   },
   {
-    id: 9,
+    id: 8,
     icon: notepadLarge,
     title: 'Services',
     component: Services,
     isFocus: false,
   },
   {
-    id: 10,
+    id: 9,
     icon: documents,
     title: 'Projects',
     component: Projects,
+    isFocus: false,
+  },
+  {
+    id: 10,
+    icon: cmd,
+    title: 'DarkIRC',
+    component: DarkIRC,
     isFocus: false,
   },
 ];
@@ -442,6 +463,25 @@ export const appSettings = {
     defaultSize: {
       width: 660,
       height: 500,
+    },
+    defaultOffset: {
+      x: 280,
+      y: 70,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    multiInstance: true,
+  },
+  DarkIRC: {
+    header: {
+      icon: milkie,
+      title: 'DarkIRC',
+    },
+    component: DarkIRC,
+    defaultSize: {
+      width: 800,
+      height: 700,
     },
     defaultOffset: {
       x: 280,
