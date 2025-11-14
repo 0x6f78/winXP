@@ -36,26 +36,6 @@ const genId = gen();
 const genIndex = gen();
 export const defaultAppState = [
   {
-    component: InternetExplorer,
-    header: {
-      title: 'Internet Explorer',
-      icon: iePaper,
-    },
-    defaultSize: {
-      width: 700,
-      height: 500,
-    },
-    defaultOffset: {
-      x: 130,
-      y: 20,
-    },
-    resizable: true,
-    minimized: false,
-    maximized: window.innerWidth < 800,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
     component: Minesweeper,
     header: {
       title: 'Minesweeper',
@@ -72,6 +52,26 @@ export const defaultAppState = [
     resizable: false,
     minimized: false,
     maximized: false,
+    id: genId(),
+    zIndex: genIndex(),
+  },
+  {
+    component: SilkRoad,
+    header: {
+      title: 'Silkroad V1 - Anonymous Marketplace',
+      icon: iePaper,
+    },
+    defaultSize: {
+      width: 800,
+      height: 800,
+    },
+    defaultOffset: {
+      x: 130,
+      y: 20,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
     id: genId(),
     zIndex: genIndex(),
   },
@@ -93,26 +93,6 @@ export const defaultAppState = [
     resizable: false,
     minimized: false,
     maximized: false,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
-    component: MyComputer,
-    header: {
-      title: 'My Computer',
-      icon: computer,
-    },
-    defaultSize: {
-      width: 660,
-      height: 500,
-    },
-    defaultOffset: {
-      x: 250,
-      y: 40,
-    },
-    resizable: true,
-    minimized: false,
-    maximized: window.innerWidth < 800,
     id: genId(),
     zIndex: genIndex(),
   },
@@ -374,8 +354,8 @@ export const appSettings = {
     },
     component: SilkRoad,
     defaultSize: {
-      width: 660,
-      height: 500,
+      width: 800,
+      height: 800,
     },
     defaultOffset: {
       x: 280,
