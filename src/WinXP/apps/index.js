@@ -80,26 +80,6 @@ export const defaultAppState = [
     zIndex: genIndex(),
   },
   {
-    component: DarkIRC,
-    header: {
-      title: 'DarkIRC',
-      icon: cmd,
-    },
-    defaultSize: {
-      width: 865,
-      height: 792,
-    },
-    defaultOffset: {
-      x: 250,
-      y: 40,
-    },
-    resizable: true,
-    minimized: false,
-    maximized: window.innerWidth < 800,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
     component: Winamp,
     header: {
       title: 'Winamp',
@@ -133,6 +113,26 @@ export const defaultAppState = [
     defaultOffset: {
       x: 250,
       y: 40,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    id: genId(),
+    zIndex: genIndex(),
+  },
+  {
+    component: DarkIRC,
+    header: {
+      title: 'DarkIRC',
+      icon: cmd,
+    },
+    defaultSize: {
+      width: 800,
+      height: 700,
+    },
+    defaultOffset: {
+      x: 375,
+      y: 150,
     },
     resizable: true,
     minimized: false,
@@ -475,7 +475,7 @@ export const appSettings = {
   },
   DarkIRC: {
     header: {
-      icon: milkie,
+      icon: cmd,
       title: 'DarkIRC',
     },
     component: DarkIRC,
@@ -484,8 +484,8 @@ export const appSettings = {
       height: 700,
     },
     defaultOffset: {
-      x: 280,
-      y: 70,
+      x: 375,
+      y: 150,
     },
     resizable: true,
     minimized: false,
