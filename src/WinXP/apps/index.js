@@ -59,7 +59,7 @@ export const defaultAppState = [
     component: SilkRoad,
     header: {
       title: 'Silkroad V1 - Anonymous Marketplace',
-      icon: iePaper,
+      icon: silkroad,
     },
     defaultSize: {
       width: 800,
@@ -103,7 +103,7 @@ export const defaultAppState = [
       icon: cmd,
     },
     defaultSize: {
-      width: 855,
+      width: 865,
       height: 792,
     },
     defaultOffset: {
