@@ -10,6 +10,7 @@ import SilkRoad from './SilkRoad';
 import Cmd from './Cmd';
 import Milkie from './Milkie';
 import Services from './Services';
+import Projects from './Projects';
 import cmd from 'assets/windowsIcons/cmd.png';
 import silkroad from 'assets/windowsIcons/silkroad.png';
 import msn from 'assets/windowsIcons/msn.png';
@@ -25,6 +26,7 @@ import notepadLarge from 'assets/windowsIcons/327(32x32).png';
 import winamp from 'assets/windowsIcons/winamp.png';
 import paintLarge from 'assets/windowsIcons/680(32x32).png';
 import paint from 'assets/windowsIcons/680(16x16).png';
+import documents from 'assets/windowsIcons/308(32x32).png';
 
 const gen = () => {
   let id = -1;
@@ -122,79 +124,79 @@ export const defaultAppState = [
 export const defaultIconState = [
   {
     id: 0,
-    icon: ie,
-    title: 'Internet Explorer',
-    component: InternetExplorer,
-    isFocus: false,
-  },
-  {
-    id: 1,
-    icon: mine,
-    title: 'Minesweeper',
-    component: Minesweeper,
-    isFocus: false,
-  },
-  {
-    id: 2,
     icon: computerLarge,
     title: 'My Computer',
     component: MyComputer,
     isFocus: false,
   },
   {
-    id: 3,
-    icon: notepadLarge,
-    title: 'Notepad',
-    component: Notepad,
+    id: 1,
+    icon: ie,
+    title: 'Internet Explorer',
+    component: InternetExplorer,
     isFocus: false,
   },
   {
-    id: 4,
+    id: 2,
+    icon: mine,
+    title: 'Minesweeper',
+    component: Minesweeper,
+    isFocus: false,
+  },
+  {
+    id: 3,
     icon: winamp,
     title: 'Winamp',
     component: Winamp,
     isFocus: false,
   },
   {
-    id: 5,
+    id: 4,
     icon: paintLarge,
     title: 'Paint',
     component: Paint,
     isFocus: false,
   },
   {
-    id: 6,
+    id: 5,
     icon: msn,
     title: 'MSN',
     component: Msn,
     isFocus: false,
   },
   {
-    id: 7,
+    id: 6,
     icon: silkroad,
     title: 'Silkroad',
     component: SilkRoad,
     isFocus: false,
   },
   {
-    id: 8,
+    id: 7,
     icon: cmd,
     title: 'BTCminer.bat',
     component: Cmd,
     isFocus: false,
   },
   {
-    id: 9,
+    id: 8,
     icon: milkie,
     title: 'Milkieverse',
     component: Milkie,
     isFocus: false,
   },
   {
-    id: 10,
+    id: 9,
     icon: notepadLarge,
     title: 'Services',
     component: Services,
+    isFocus: false,
+  },
+  {
+    id: 10,
+    icon: documents,
+    title: 'Projects',
+    component: Projects,
     isFocus: false,
   },
 ];
@@ -265,6 +267,25 @@ export const appSettings = {
       title: 'My Computer',
     },
     component: MyComputer,
+    defaultSize: {
+      width: 660,
+      height: 500,
+    },
+    defaultOffset: {
+      x: 260,
+      y: 50,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    multiInstance: false,
+  },
+  Projects: {
+    header: {
+      icon: documents,
+      title: 'My Projects',
+    },
+    component: Projects,
     defaultSize: {
       width: 660,
       height: 500,
