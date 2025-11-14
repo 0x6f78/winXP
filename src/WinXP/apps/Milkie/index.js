@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
-function Msn() {
+function Milkie() {
   useEffect(() => {
     const timer = setTimeout(() => {
       // Opens the link in a new tab/window
-      window.open('https://discord.com/invite/9824xbSgcJ', '_blank');
+      window.open('https://milkieverse.cc', '_blank');
     }, 3000); // Redirect after 3 seconds
 
     return () => clearTimeout(timer);
@@ -28,4 +28,4 @@ const RedirectScreen = styled.div`
   color: #333;
 `;
 
-export default Msn;
+export default Milkie;

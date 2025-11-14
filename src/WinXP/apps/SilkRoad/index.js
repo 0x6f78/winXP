@@ -4,8 +4,11 @@ import styled from 'styled-components';
 function SilkRoad() {
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.href =
-        'https://en.wikipedia.org/wiki/Silk_Road_(marketplace)';
+      // Opens the link in a new tab/window
+      window.open(
+        'https://en.wikipedia.org/wiki/Silk_Road_(marketplace)',
+        '_blank',
+      );
     }, 3000); // Redirect after 3 seconds
 
     return () => clearTimeout(timer);

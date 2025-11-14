@@ -216,19 +216,6 @@ function WinXP() {
     dispatch({ type: FOCUS_ICON, payload: id });
   }
   function onDoubleClickIcon(component) {
-    if (component === appSettings.Msn.component) {
-      window.open('https://discord.gg/9824xbSgcJ', '_blank');
-      return;
-    }
-
-    if (component === appSettings.SilkRoad.component) {
-      window.open(
-        'https://en.wikipedia.org/wiki/Silk_Road_(marketplace)',
-        '_blank',
-      );
-      return;
-    }
-
     // Default behavior for all other apps
     const appSetting = Object.values(appSettings).find(
       setting => setting.component === component,
@@ -264,7 +251,6 @@ function WinXP() {
       dispatch({ type: ADD_APP, payload: appSettings.Winamp });
     else if (o === 'Paint')
       dispatch({ type: ADD_APP, payload: appSettings.Paint });
-    else if (o === 'Msn') dispatch({ type: ADD_APP, payload: appSettings.Msn });
     else if (o === 'Silkroad')
       dispatch({ type: ADD_APP, payload: appSettings.SilkRoad });
     else if (o === 'Log Off')

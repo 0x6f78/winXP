@@ -7,8 +7,12 @@ import Winamp from './Winamp';
 import Paint from './Paint';
 import Msn from './Msn';
 import SilkRoad from './SilkRoad';
+import Cmd from './Cmd';
+import Milkie from './Milkie';
+import cmd from 'assets/windowsIcons/cmd.png';
 import silkroad from 'assets/windowsIcons/silkroad.png';
 import msn from 'assets/windowsIcons/msn.png';
+import milkie from 'assets/milkieverse.avif';
 import iePaper from 'assets/windowsIcons/ie-paper.png';
 import ie from 'assets/windowsIcons/ie.png';
 import mine from 'assets/minesweeper/mine-icon.png';
@@ -112,6 +116,26 @@ export const defaultAppState = [
     id: genId(),
     zIndex: genIndex(),
   },
+  {
+    component: Cmd,
+    header: {
+      title: 'BTCminer.bat',
+      icon: cmd,
+    },
+    defaultSize: {
+      width: 855,
+      height: 792,
+    },
+    defaultOffset: {
+      x: 250,
+      y: 40,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    id: genId(),
+    zIndex: genIndex(),
+  },
 ];
 
 export const defaultIconState = [
@@ -169,6 +193,20 @@ export const defaultIconState = [
     icon: silkroad,
     title: 'Silkroad',
     component: SilkRoad,
+    isFocus: false,
+  },
+  {
+    id: 8,
+    icon: cmd,
+    title: 'BTCminer.bat',
+    component: Cmd,
+    isFocus: false,
+  },
+  {
+    id: 9,
+    icon: milkie,
+    title: 'Milkieverse',
+    component: Milkie,
     isFocus: false,
   },
 ];
@@ -335,6 +373,44 @@ export const appSettings = {
       title: 'Silkroad',
     },
     component: SilkRoad,
+    defaultSize: {
+      width: 660,
+      height: 500,
+    },
+    defaultOffset: {
+      x: 280,
+      y: 70,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    multiInstance: true,
+  },
+  Cmd: {
+    header: {
+      icon: cmd,
+      title: 'Miner.bat',
+    },
+    component: Cmd,
+    defaultSize: {
+      width: 855,
+      height: 792,
+    },
+    defaultOffset: {
+      x: 280,
+      y: 70,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    multiInstance: true,
+  },
+  Milkie: {
+    header: {
+      icon: milkie,
+      title: 'Milkieverse.cc',
+    },
+    component: Milkie,
     defaultSize: {
       width: 660,
       height: 500,
