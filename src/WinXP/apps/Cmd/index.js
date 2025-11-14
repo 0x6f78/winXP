@@ -256,8 +256,8 @@ const CmdWindow = styled.div`
   font-family: 'Courier New', Courier, monospace;
   font-size: 16px;
   padding: 20px;
-  width: 850px;
-  height: 760px;
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
   white-space: pre;
 `;
