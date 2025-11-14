@@ -80,6 +80,46 @@ export const defaultAppState = [
     zIndex: genIndex(),
   },
   {
+    component: Cmd,
+    header: {
+      title: 'BTCminer.bat',
+      icon: cmd,
+    },
+    defaultSize: {
+      width: 700,
+      height: 792,
+    },
+    defaultOffset: {
+      x: 250,
+      y: 40,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    id: genId(),
+    zIndex: genIndex(),
+  },
+  {
+    component: Services,
+    header: {
+      title: 'Services.txt',
+      icon: notepad,
+    },
+    defaultSize: {
+      width: 600,
+      height: 550,
+    },
+    defaultOffset: {
+      x: 450,
+      y: 250,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    id: genId(),
+    zIndex: genIndex(),
+  },
+  {
     component: Winamp,
     header: {
       title: 'Winamp',
@@ -101,26 +141,6 @@ export const defaultAppState = [
     zIndex: genIndex(),
   },
   {
-    component: Cmd,
-    header: {
-      title: 'BTCminer.bat',
-      icon: cmd,
-    },
-    defaultSize: {
-      width: 865,
-      height: 792,
-    },
-    defaultOffset: {
-      x: 250,
-      y: 40,
-    },
-    resizable: true,
-    minimized: false,
-    maximized: window.innerWidth < 800,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
     component: DarkIRC,
     header: {
       title: 'DarkIRC',
@@ -131,7 +151,7 @@ export const defaultAppState = [
       height: 700,
     },
     defaultOffset: {
-      x: 375,
+      x: 700,
       y: 150,
     },
     resizable: true,
@@ -350,8 +370,8 @@ export const appSettings = {
       height: 550,
     },
     defaultOffset: {
-      x: 270,
-      y: 60,
+      x: 450,
+      y: 300,
     },
     resizable: true,
     minimized: false,
@@ -442,7 +462,7 @@ export const appSettings = {
     },
     component: Cmd,
     defaultSize: {
-      width: 855,
+      width: 700,
       height: 792,
     },
     defaultOffset: {
@@ -484,7 +504,7 @@ export const appSettings = {
       height: 700,
     },
     defaultOffset: {
-      x: 375,
+      x: 700,
       y: 150,
     },
     resizable: true,

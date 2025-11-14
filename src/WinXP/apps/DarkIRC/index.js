@@ -191,7 +191,7 @@ function Cmd() {
     },
     {
       time: '12:14:00',
-      user: 'Shadow_DropBear',
+      user: 'T0r1Crypt',
       text: 'Already logging every move. Ghost traces, fully encrypted.',
     },
   ];
