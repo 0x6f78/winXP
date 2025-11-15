@@ -40,26 +40,6 @@ const genId = gen();
 const genIndex = gen();
 export const defaultAppState = [
   {
-    component: Minesweeper,
-    header: {
-      title: 'Minesweeper',
-      icon: mine,
-    },
-    defaultSize: {
-      width: 0,
-      height: 0,
-    },
-    defaultOffset: {
-      x: 180,
-      y: 170,
-    },
-    resizable: false,
-    minimized: false,
-    maximized: false,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
     component: SilkRoad,
     header: {
       title: 'Silkroad V1 - Anonymous Marketplace',
@@ -92,26 +72,6 @@ export const defaultAppState = [
     defaultOffset: {
       x: 250,
       y: 40,
-    },
-    resizable: true,
-    minimized: false,
-    maximized: window.innerWidth < 800,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
-    component: Services,
-    header: {
-      title: 'Services.txt',
-      icon: notepad,
-    },
-    defaultSize: {
-      width: 600,
-      height: 550,
-    },
-    defaultOffset: {
-      x: 450,
-      y: 250,
     },
     resizable: true,
     minimized: false,
@@ -153,6 +113,26 @@ export const defaultAppState = [
     defaultOffset: {
       x: 550,
       y: 150,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    id: genId(),
+    zIndex: genIndex(),
+  },
+  {
+    component: Services,
+    header: {
+      title: 'Services.txt',
+      icon: notepad,
+    },
+    defaultSize: {
+      width: 600,
+      height: 550,
+    },
+    defaultOffset: {
+      x: 450,
+      y: 250,
     },
     resizable: true,
     minimized: false,
