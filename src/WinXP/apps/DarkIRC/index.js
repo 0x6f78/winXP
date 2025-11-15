@@ -31,7 +31,169 @@ function Cmd() {
       user: '@millkie',
       text: 'All set. Anyone up for some games later on??',
     },
-    // ... rest of messages
+    {
+      time: '12:02:15',
+      user: 'daHex',
+      text: 'L2 or CS1.3? I’m logging in. Count me.',
+    },
+    {
+      time: '12:02:45',
+      user: '!AutoMessage',
+      text: 'Me too, after work, soon...',
+    },
+    {
+      time: '12:03:12',
+      user: 'Shadow_DropBear',
+      text: 'Seen the latest leaks??????',
+    },
+    {
+      time: '12:03:45',
+      user: '@millkie',
+      text: 'Yeah… the visuals are insane. Anyone else peeked it?',
+    },
+    {
+      time: '12:04:05',
+      user: 'daHex',
+      text: 'Not yet, syncing my rig. Will check later.',
+    },
+    {
+      time: '12:04:30',
+      user: 'SnipaXMR',
+      text: 'I can stream it if you want, or record something.',
+    },
+    {
+      time: '12:04:59',
+      user: 'Vex',
+      text: 'Wait are you talking about the new cross-realm raves?',
+    },
+    {
+      time: '12:05:15',
+      user: '@millkie',
+      text: 'Those fully virtual ones, right? 3D worlds?',
+    },
+    {
+      time: '12:05:20',
+      user: 'Vex',
+      text:
+        'Exactly. Fully immersive, avatars moving, hundreds of people synced.',
+    },
+    {
+      time: '12:05:45',
+      user: 'SnipaXMR',
+      text: 'Wait… you mean real-time motion, 3D lights, DJ streams?',
+    },
+    {
+      time: '12:06:02',
+      user: 'Vex',
+      text:
+        'Yep. Think cyber-clubs with live sets, neon strobes, avatars grooving.',
+    },
+    {
+      time: '12:06:25',
+      user: '@millkie',
+      text: 'This is wild. Actual DJs streaming in real-time?',
+    },
+    {
+      time: '12:06:42',
+      user: 'Vex',
+      text:
+        'Exactly. Some stages have 50+ avatars, dancing, chatting, even mini-games.',
+    },
+    {
+      time: '12:07:05',
+      user: 'daHex',
+      text: 'All interactive? Full-on party in cyberspace?',
+    },
+    {
+      time: '12:07:23',
+      user: 'Vex',
+      text:
+        'Yes. You can wander lounges, rooftop areas, multiple stages, fully 3D.',
+    },
+    {
+      time: '12:07:50',
+      user: 'SnipaXMR',
+      text: 'Next-level immersion… feels like the future of social hacking.',
+    },
+    {
+      time: '12:08:10',
+      user: 'Vex',
+      text:
+        'It’s literally cross-realm. Worlds merged. Avatars, lights, music… total immersion.',
+    },
+    {
+      time: '12:08:30',
+      user: '@millkie',
+      text: 'Sign me up. We need our crew in there.',
+    },
+    {
+      time: '12:08:50',
+      user: 'daHex',
+      text: 'Imagine all our handles in the same 3D space. Mind blown.',
+    },
+    {
+      time: '12:09:12',
+      user: 'Shadow_DropBear',
+      text: 'VR mode coming soon too. You could dance like a ghost in shell.',
+    },
+    {
+      time: '12:09:35',
+      user: 'Vex',
+      text: 'Cross-realm, fully 3D, live DJs, mini-games… this shit is wild.',
+    },
+
+    // New added messages, cleaned
+    {
+      time: '12:09:50',
+      user: 'Cipherling',
+      text: 'Anyone tried glitching the avatar physics yet?',
+    },
+    {
+      time: '12:10:12',
+      user: 'SnipaXMR',
+      text: 'Some hacks are wild… avatars reacting unpredictably.',
+    },
+    {
+      time: '12:10:33',
+      user: 'Vex',
+      text:
+        'Careful, they’re patching exploits every week. Admins are on high alert.',
+    },
+    {
+      time: '12:10:50',
+      user: 'daHex',
+      text: 'Gonna script a little bot to track parties tonight.',
+    },
+    {
+      time: '12:11:52',
+      user: 'Vex',
+      text: 'Lol, this crew turns parties into a full cyber-adventure.',
+    },
+    {
+      time: '12:12:15',
+      user: 'SnipaXMR',
+      text: 'Virtual dance-off challenge? Avatars only, no cheating.',
+    },
+    {
+      time: '12:12:40',
+      user: '@millkie',
+      text: 'Challenge accepted. Gonna wiggle my ass as usual.',
+    },
+    {
+      time: '12:13:20',
+      user: 'Vex',
+      text: 'Imagine all this while live DJs mixing. Pure chaos.',
+    },
+    {
+      time: '12:13:45',
+      user: 'daHex',
+      text: 'We should record this. Archive the cyber-party for posterity.',
+    },
+    {
+      time: '12:14:00',
+      user: 'T0r1Crypt',
+      text: 'Already logging every move. Ghost traces, fully encrypted.',
+    },
   ];
 
   const channels = [
