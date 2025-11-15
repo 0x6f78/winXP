@@ -145,6 +145,13 @@ const Container = styled.footer`
   right: 0;
   left: 0;
   display: flex;
+  z-index: 9999;
+  transform: translateZ(0);
+
+  @media (max-width: 768px) {
+    position: fixed;
+    will-change: transform;
+  }
   .footer__items.left {
     height: 100%;
     flex: 1;

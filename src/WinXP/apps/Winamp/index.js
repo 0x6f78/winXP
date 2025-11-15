@@ -14,7 +14,7 @@ function Winamp({ onClose, onMinimize }) {
       initialTracks,
       // initialSkin: {
       // url:
-      //   'https://skins.webamp.org/skin/971c1afc05b56f5160903d0748b73239/Deus_Ex_Amp_by_AJ.wsz', // Add skins in the future for WebAmp
+      //   'https://skins.webamp.org/skin/971c1afc05b56f5160903d0748b73239/Deus_Ex_Amp_by_AJ.wsz', // Add skins in the future
       // },
     });
     webamp.current.renderWhenReady(target).then(() => {
@@ -33,7 +33,7 @@ function Winamp({ onClose, onMinimize }) {
   });
   return (
     <div
-      style={{ position: 'fixed', left: 0, top: 0, right: 0, bottom: 0 }}
+      style={{ position: 'absolute', left: 0, top: 0, right: 0, bottom: 0 }}
       ref={ref}
     />
   );

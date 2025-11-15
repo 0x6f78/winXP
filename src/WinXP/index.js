@@ -1,4 +1,4 @@
-import React, { useReducer, useRef, useCallback } from 'react';
+import React, { useReducer, useRef, useCallback, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import useMouse from 'react-use/lib/useMouse';
 
@@ -22,6 +22,7 @@ import Modal from './Modal';
 import Footer from './Footer';
 import Windows from './Windows';
 import Icons from './Icons';
+import LoadingScreen from './LoadingScreen';
 import { DashedBox } from 'components';
 
 const initState = {
@@ -175,6 +176,7 @@ const reducer = (state, action = { type: '' }) => {
 };
 function WinXP() {
   const [state, dispatch] = useReducer(reducer, initState);
+  const [isLoading, setIsLoading] = useState(true);
   const ref = useRef(null);
   const mouse = useMouse(ref);
   const focusedAppId = getFocusedAppId();
@@ -245,7 +247,26 @@ function WinXP() {
       dispatch({ type: ADD_APP, payload: appSettings.Minesweeper });
     else if (o === 'My Computer')
       dispatch({ type: ADD_APP, payload: appSettings['My Computer'] });
-    else if (o === 'Notepad')
+    else if (o === 'My Documents') {
+      // Check if My Computer is already open
+      const myComputerApp = state.apps.find(
+        app => app.header && app.header.title === 'My Computer',
+      );
+      if (myComputerApp) {
+        // Focus the existing My Computer window
+        dispatch({ type: FOCUS_APP, payload: myComputerApp.id });
+        // Navigate to My Documents (this would require passing a navigation prop)
+      } else {
+        // Open My Computer with My Documents as initial path
+        dispatch({
+          type: ADD_APP,
+          payload: {
+            ...appSettings['My Computer'],
+            injectProps: { initialPath: 'My Documents' },
+          },
+        });
+      }
+    } else if (o === 'Notepad')
       dispatch({ type: ADD_APP, payload: appSettings.Notepad });
     else if (o === 'Winamp')
       dispatch({ type: ADD_APP, payload: appSettings.Winamp });
@@ -293,46 +314,52 @@ function WinXP() {
     dispatch({ type: CANCEL_POWER_OFF });
   }
   return (
-    <Container
-      ref={ref}
-      onMouseUp={onMouseUpDesktop}
-      onMouseDown={onMouseDownDesktop}
-      state={state.powerState}
-    >
-      <Icons
-        icons={state.icons}
-        onMouseDown={onMouseDownIcon}
-        onDoubleClick={onDoubleClickIcon}
-        displayFocus={state.focusing === FOCUSING.ICON}
-        appSettings={appSettings}
-        mouse={mouse}
-        selecting={state.selecting}
-        setSelectedIcons={onIconsSelected}
-      />
-      <DashedBox startPos={state.selecting} mouse={mouse} />
-      <Windows
-        apps={state.apps}
-        onMouseDown={onFocusApp}
-        onClose={onCloseApp}
-        onMinimize={onMinimizeWindow}
-        onMaximize={onMaximizeWindow}
-        focusedAppId={focusedAppId}
-      />
-      <Footer
-        apps={state.apps}
-        onMouseDownApp={onMouseDownFooterApp}
-        focusedAppId={focusedAppId}
-        onMouseDown={onMouseDownFooter}
-        onClickMenuItem={onClickMenuItem}
-      />
-      {state.powerState !== POWER_STATE.START && (
-        <Modal
-          onClose={onModalClose}
-          onClickButton={onClickModalButton}
-          mode={state.powerState}
-        />
+    <>
+      {isLoading && (
+        <LoadingScreen onLoadComplete={() => setIsLoading(false)} />
       )}
-    </Container>
+      <Container
+        ref={ref}
+        onMouseUp={onMouseUpDesktop}
+        onMouseDown={onMouseDownDesktop}
+        state={state.powerState}
+        style={{ display: isLoading ? 'none' : 'block' }}
+      >
+        <Icons
+          icons={state.icons}
+          onMouseDown={onMouseDownIcon}
+          onDoubleClick={onDoubleClickIcon}
+          displayFocus={state.focusing === FOCUSING.ICON}
+          appSettings={appSettings}
+          mouse={mouse}
+          selecting={state.selecting}
+          setSelectedIcons={onIconsSelected}
+        />
+        <DashedBox startPos={state.selecting} mouse={mouse} />
+        <Windows
+          apps={state.apps}
+          onMouseDown={onFocusApp}
+          onClose={onCloseApp}
+          onMinimize={onMinimizeWindow}
+          onMaximize={onMaximizeWindow}
+          focusedAppId={focusedAppId}
+        />
+        <Footer
+          apps={state.apps}
+          onMouseDownApp={onMouseDownFooterApp}
+          focusedAppId={focusedAppId}
+          onMouseDown={onMouseDownFooter}
+          onClickMenuItem={onClickMenuItem}
+        />
+        {state.powerState !== POWER_STATE.START && (
+          <Modal
+            onClose={onModalClose}
+            onClickButton={onClickModalButton}
+            mode={state.powerState}
+          />
+        )}
+      </Container>
+    </>
   );
 }
 
@@ -364,6 +391,11 @@ const Container = styled.div`
   animation: ${({ state }) => animation[state]} 5s forwards;
   *:not(input):not(textarea) {
     user-select: none;
+  }
+
+  @media (max-width: 768px) {
+    padding-bottom: 30px;
+    box-sizing: border-box;
   }
 `;
 

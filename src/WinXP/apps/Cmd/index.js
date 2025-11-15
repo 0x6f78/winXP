@@ -56,7 +56,11 @@ function Cmd() {
   // AUTO SCROLL
   // -------------------------------
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Use scrollTop instead of scrollIntoView to prevent viewport shifting on mobile
+    const scrollContainer = messagesEndRef.current?.parentElement;
+    if (scrollContainer) {
+      scrollContainer.scrollTop = scrollContainer.scrollHeight;
+    }
   }, [logMessages]);
 
   // -------------------------------
