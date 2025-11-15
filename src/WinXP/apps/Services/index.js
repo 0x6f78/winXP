@@ -119,7 +119,7 @@ const StyledTextarea = styled.textarea`
   line-height: 14px;
   resize: none;
   padding: 2px;
-  ${props => (props.wordWrap ? '' : 'white-space: nowrap; overflow-x: scroll;')}
+  white-space: pre; /* preserves spaces and line breaks exactly */
   overflow-y: scroll;
   border: 1px solid #96abff;
 `;
