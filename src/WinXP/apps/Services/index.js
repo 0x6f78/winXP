@@ -18,21 +18,19 @@ export default function Services({ onClose }) {
     ==========================================
 
     1. Web Development
-       - Modern website design
-       - Custom web applications
+       - Website design
        - Responsive & mobile-friendly sites
        - E-commerce solutions (magento, woocomerce, etc)
 
     2. 3D Printing
-       - Rapid prototyping
-       - Custom 3D printing
-       - On-demand models and parts
+       - Prototyping
+       - Custom 3D prints
+       - On-demand priting
 
     3. 3D Design & Animation
        - Game level design
        - Custom 3D assets
-       - Personalized 3D avatars
-       - 3D animation
+       - Unity animations
        - Optimization
 
     -------------------------------------------
