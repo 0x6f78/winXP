@@ -1,4 +1,4 @@
-import React, { useReducer, useRef, useCallback, useState } from 'react';
+import React, { useReducer, useRef, useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
 import useMouse from 'react-use/lib/useMouse';
 
@@ -22,7 +22,6 @@ import Modal from './Modal';
 import Footer from './Footer';
 import Windows from './Windows';
 import Icons from './Icons';
-import LoadingScreen from './LoadingScreen';
 import { DashedBox } from 'components';
 
 const initState = {
@@ -34,9 +33,10 @@ const initState = {
   selecting: false,
   powerState: POWER_STATE.START,
 };
+
 const reducer = (state, action = { type: '' }) => {
   switch (action.type) {
-    case ADD_APP:
+    case ADD_APP: {
       const app = state.apps.find(
         _app => _app.component === action.payload.component,
       );
@@ -67,6 +67,7 @@ const reducer = (state, action = { type: '' }) => {
         nextZIndex: state.nextZIndex + 1,
         focusing: FOCUSING.WINDOW,
       };
+    }
     case DEL_APP:
       if (state.focusing !== FOCUSING.WINDOW) return state;
       return {
@@ -97,139 +98,103 @@ const reducer = (state, action = { type: '' }) => {
       const apps = state.apps.map(app =>
         app.id === action.payload ? { ...app, minimized: true } : app,
       );
-      return {
-        ...state,
-        apps,
-        focusing: FOCUSING.WINDOW,
-      };
+      return { ...state, apps, focusing: FOCUSING.WINDOW };
     }
     case TOGGLE_MAXIMIZE_APP: {
       if (state.focusing !== FOCUSING.WINDOW) return state;
       const apps = state.apps.map(app =>
         app.id === action.payload ? { ...app, maximized: !app.maximized } : app,
       );
-      return {
-        ...state,
-        apps,
-        focusing: FOCUSING.WINDOW,
-      };
+      return { ...state, apps, focusing: FOCUSING.WINDOW };
     }
     case FOCUS_ICON: {
       const icons = state.icons.map(icon => ({
         ...icon,
         isFocus: icon.id === action.payload,
       }));
-      return {
-        ...state,
-        focusing: FOCUSING.ICON,
-        icons,
-      };
+      return { ...state, focusing: FOCUSING.ICON, icons };
     }
     case SELECT_ICONS: {
       const icons = state.icons.map(icon => ({
         ...icon,
         isFocus: action.payload.includes(icon.id),
       }));
-      return {
-        ...state,
-        icons,
-        focusing: FOCUSING.ICON,
-      };
+      return { ...state, icons, focusing: FOCUSING.ICON };
     }
     case FOCUS_DESKTOP:
       return {
         ...state,
         focusing: FOCUSING.DESKTOP,
-        icons: state.icons.map(icon => ({
-          ...icon,
-          isFocus: false,
-        })),
+        icons: state.icons.map(icon => ({ ...icon, isFocus: false })),
       };
     case START_SELECT:
       return {
         ...state,
         focusing: FOCUSING.DESKTOP,
-        icons: state.icons.map(icon => ({
-          ...icon,
-          isFocus: false,
-        })),
+        icons: state.icons.map(icon => ({ ...icon, isFocus: false })),
         selecting: action.payload,
       };
     case END_SELECT:
-      return {
-        ...state,
-        selecting: null,
-      };
+      return { ...state, selecting: null };
     case POWER_OFF:
-      return {
-        ...state,
-        powerState: action.payload,
-      };
+      return { ...state, powerState: action.payload };
     case CANCEL_POWER_OFF:
-      return {
-        ...state,
-        powerState: POWER_STATE.START,
-      };
+      return { ...state, powerState: POWER_STATE.START };
     default:
       return state;
   }
 };
+
 function WinXP() {
   const [state, dispatch] = useReducer(reducer, initState);
-  const [isLoading, setIsLoading] = useState(true);
   const ref = useRef(null);
   const mouse = useMouse(ref);
+
   const focusedAppId = getFocusedAppId();
+
   const onFocusApp = useCallback(id => {
     dispatch({ type: FOCUS_APP, payload: id });
   }, []);
+
   const onMaximizeWindow = useCallback(
     id => {
-      if (focusedAppId === id) {
+      if (focusedAppId === id)
         dispatch({ type: TOGGLE_MAXIMIZE_APP, payload: id });
-      }
     },
     [focusedAppId],
   );
+
   const onMinimizeWindow = useCallback(
     id => {
-      if (focusedAppId === id) {
-        dispatch({ type: MINIMIZE_APP, payload: id });
-      }
+      if (focusedAppId === id) dispatch({ type: MINIMIZE_APP, payload: id });
     },
     [focusedAppId],
   );
+
   const onCloseApp = useCallback(
     id => {
-      if (focusedAppId === id) {
-        dispatch({ type: DEL_APP, payload: id });
-      }
+      if (focusedAppId === id) dispatch({ type: DEL_APP, payload: id });
     },
     [focusedAppId],
   );
+
   function onMouseDownFooterApp(id) {
-    if (focusedAppId === id) {
-      dispatch({ type: MINIMIZE_APP, payload: id });
-    } else {
-      dispatch({ type: FOCUS_APP, payload: id });
-    }
+    if (focusedAppId === id) dispatch({ type: MINIMIZE_APP, payload: id });
+    else dispatch({ type: FOCUS_APP, payload: id });
   }
+
   function onMouseDownIcon(id) {
     dispatch({ type: FOCUS_ICON, payload: id });
   }
+
   function onDoubleClickIcon(component) {
-    // Default behavior for all other apps
     const appSetting = Object.values(appSettings).find(
       setting => setting.component === component,
     );
-
-    if (!appSetting) {
-      console.error('Component not found:', component);
-      return;
-    }
-
+    if (!appSetting) return;
     dispatch({ type: ADD_APP, payload: appSetting });
   }
+
   function getFocusedAppId() {
     if (state.focusing !== FOCUSING.WINDOW) return -1;
     const focusedApp = [...state.apps]
@@ -237,9 +202,11 @@ function WinXP() {
       .find(app => !app.minimized);
     return focusedApp ? focusedApp.id : -1;
   }
+
   function onMouseDownFooter() {
     dispatch({ type: FOCUS_DESKTOP });
   }
+
   function onClickMenuItem(o) {
     if (o === 'Internet')
       dispatch({ type: ADD_APP, payload: appSettings['Internet Explorer'] });
@@ -248,16 +215,12 @@ function WinXP() {
     else if (o === 'My Computer')
       dispatch({ type: ADD_APP, payload: appSettings['My Computer'] });
     else if (o === 'My Documents') {
-      // Check if My Computer is already open
       const myComputerApp = state.apps.find(
         app => app.header && app.header.title === 'My Computer',
       );
       if (myComputerApp) {
-        // Focus the existing My Computer window
         dispatch({ type: FOCUS_APP, payload: myComputerApp.id });
-        // Navigate to My Documents (this would require passing a navigation prop)
       } else {
-        // Open My Computer with My Documents as initial path
         dispatch({
           type: ADD_APP,
           payload: {
@@ -287,6 +250,7 @@ function WinXP() {
         },
       });
   }
+
   function onMouseDownDesktop(e) {
     if (e.target === e.currentTarget)
       dispatch({
@@ -294,86 +258,75 @@ function WinXP() {
         payload: { x: mouse.docX, y: mouse.docY },
       });
   }
-  function onMouseUpDesktop(e) {
+
+  function onMouseUpDesktop() {
     dispatch({ type: END_SELECT });
   }
+
   const onIconsSelected = useCallback(
-    iconIds => {
-      dispatch({ type: SELECT_ICONS, payload: iconIds });
-    },
+    iconIds => dispatch({ type: SELECT_ICONS, payload: iconIds }),
     [dispatch],
   );
-  function onClickModalButton(text) {
+
+  function onClickModalButton() {
     dispatch({ type: CANCEL_POWER_OFF });
-    dispatch({
-      type: ADD_APP,
-      payload: appSettings.Error,
-    });
+    dispatch({ type: ADD_APP, payload: appSettings.Error });
   }
+
   function onModalClose() {
     dispatch({ type: CANCEL_POWER_OFF });
   }
+
   return (
-    <>
-      {isLoading && (
-        <LoadingScreen onLoadComplete={() => setIsLoading(false)} />
+    <Container
+      ref={ref}
+      onMouseUp={onMouseUpDesktop}
+      onMouseDown={onMouseDownDesktop}
+      state={state.powerState}
+    >
+      <Icons
+        icons={state.icons}
+        onMouseDown={onMouseDownIcon}
+        onDoubleClick={onDoubleClickIcon}
+        displayFocus={state.focusing === FOCUSING.ICON}
+        appSettings={appSettings}
+        mouse={mouse}
+        selecting={state.selecting}
+        setSelectedIcons={onIconsSelected}
+      />
+      <DashedBox startPos={state.selecting} mouse={mouse} />
+      <Windows
+        apps={state.apps}
+        onMouseDown={onFocusApp}
+        onClose={onCloseApp}
+        onMinimize={onMinimizeWindow}
+        onMaximize={onMaximizeWindow}
+        focusedAppId={focusedAppId}
+      />
+      <Footer
+        apps={state.apps}
+        onMouseDownApp={onMouseDownFooterApp}
+        focusedAppId={focusedAppId}
+        onMouseDown={onMouseDownFooter}
+        onClickMenuItem={onClickMenuItem}
+      />
+      {state.powerState !== POWER_STATE.START && (
+        <Modal
+          onClose={onModalClose}
+          onClickButton={onClickModalButton}
+          mode={state.powerState}
+        />
       )}
-      <Container
-        ref={ref}
-        onMouseUp={onMouseUpDesktop}
-        onMouseDown={onMouseDownDesktop}
-        state={state.powerState}
-        style={{ display: isLoading ? 'none' : 'block' }}
-      >
-        <Icons
-          icons={state.icons}
-          onMouseDown={onMouseDownIcon}
-          onDoubleClick={onDoubleClickIcon}
-          displayFocus={state.focusing === FOCUSING.ICON}
-          appSettings={appSettings}
-          mouse={mouse}
-          selecting={state.selecting}
-          setSelectedIcons={onIconsSelected}
-        />
-        <DashedBox startPos={state.selecting} mouse={mouse} />
-        <Windows
-          apps={state.apps}
-          onMouseDown={onFocusApp}
-          onClose={onCloseApp}
-          onMinimize={onMinimizeWindow}
-          onMaximize={onMaximizeWindow}
-          focusedAppId={focusedAppId}
-        />
-        <Footer
-          apps={state.apps}
-          onMouseDownApp={onMouseDownFooterApp}
-          focusedAppId={focusedAppId}
-          onMouseDown={onMouseDownFooter}
-          onClickMenuItem={onClickMenuItem}
-        />
-        {state.powerState !== POWER_STATE.START && (
-          <Modal
-            onClose={onModalClose}
-            onClickButton={onClickModalButton}
-            mode={state.powerState}
-          />
-        )}
-      </Container>
-    </>
+    </Container>
   );
 }
 
 const powerOffAnimation = keyframes`
-  0% {
-    filter: brightness(1) grayscale(0);
-  }
-  30% {
-    filter: brightness(1) grayscale(0);
-  }
-  100% {
-    filter: brightness(0.6) grayscale(1);
-  }
+  0% { filter: brightness(1) grayscale(0); }
+  30% { filter: brightness(1) grayscale(0); }
+  100% { filter: brightness(0.6) grayscale(1); }
 `;
+
 const animation = {
   [POWER_STATE.START]: '',
   [POWER_STATE.TURN_OFF]: powerOffAnimation,
@@ -392,7 +345,6 @@ const Container = styled.div`
   *:not(input):not(textarea) {
     user-select: none;
   }
-
   @media (max-width: 768px) {
     padding-bottom: 30px;
     box-sizing: border-box;
