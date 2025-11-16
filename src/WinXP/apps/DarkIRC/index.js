@@ -51,7 +51,7 @@ function Cmd() {
     },
     {
       time: '12:03:12',
-      user: 'Shadow_DropBear',
+      user: 'SoftCloud',
       text: 'Seen the latest leaks??????',
     },
     {
@@ -121,7 +121,7 @@ function Cmd() {
     {
       time: '12:07:50',
       user: 'SnipaXMR',
-      text: 'Next-level immersion… feels like the future of social hacking.',
+      text: 'Next-level immersion…',
     },
     {
       time: '12:08:10',
@@ -132,65 +132,17 @@ function Cmd() {
     {
       time: '12:08:30',
       user: '@millkie',
-      text: 'Sign me up. We need our crew in there.',
-    },
-    {
-      time: '12:08:50',
-      user: 'daHex',
-      text: 'Imagine all our handles in the same 3D space. Mind blown.',
+      text: 'Sign me up.',
     },
     {
       time: '12:09:12',
-      user: 'Shadow_DropBear',
+      user: 'SoftCloud',
       text: 'VR mode coming soon too. You could dance like a ghost in shell.',
     },
     {
       time: '12:09:35',
       user: 'Vex',
       text: 'Cross-realm, fully 3D, live DJs, mini-games… this shit is wild.',
-    },
-
-    // New added messages, cleaned
-    {
-      time: '12:09:50',
-      user: 'Cipherling',
-      text: 'Anyone tried glitching the avatar physics yet?',
-    },
-    {
-      time: '12:10:12',
-      user: 'SnipaXMR',
-      text: 'Some hacks are wild… avatars reacting unpredictably.',
-    },
-    {
-      time: '12:10:33',
-      user: 'Vex',
-      text:
-        'Careful, they’re patching exploits every week. Admins are on high alert.',
-    },
-    {
-      time: '12:10:50',
-      user: 'daHex',
-      text: 'Gonna script a little bot to track parties tonight.',
-    },
-    {
-      time: '12:11:52',
-      user: 'Vex',
-      text: 'Lol, this crew turns parties into a full cyber-adventure.',
-    },
-    {
-      time: '12:12:15',
-      user: 'SnipaXMR',
-      text: 'Virtual dance-off challenge? Avatars only, no cheating.',
-    },
-    {
-      time: '12:12:40',
-      user: '@millkie',
-      text: 'Challenge accepted. Gonna wiggle my ass as usual.',
-    },
-    {
-      time: '12:13:20',
-      user: 'Vex',
-      text: 'Imagine all this while live DJs mixing. Pure chaos.',
     },
     {
       time: '12:13:45',
@@ -200,7 +152,7 @@ function Cmd() {
     {
       time: '12:14:00',
       user: 'T0r1Crypt',
-      text: 'Already logging every move. Ghost traces, fully encrypted.',
+      text: 'Already recording every move.',
     },
   ];
 

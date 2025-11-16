@@ -4,6 +4,33 @@ const album = 'netBloc Vol. 24: tiuqottigeloot';
 
 export const initialTracks = [
   {
+    url: 'https://files.catbox.moe/vtkmo6.mp3',
+    duration: 190.093061,
+    metaData: {
+      title: 'You think you know me',
+      artist: 'Xiorro',
+      album,
+    },
+  },
+  {
+    url: 'https://files.catbox.moe/3nrdd8.mp3',
+    duration: 190.093061,
+    metaData: {
+      title: 'Vertigo',
+      artist: 'Uväll',
+      album,
+    },
+  },
+  {
+    url: 'https://files.catbox.moe/4vlvpz.mp3',
+    duration: 190.093061,
+    metaData: {
+      title: 'Axt',
+      artist: 'Jan Zimmerman',
+      album,
+    },
+  },
+  {
     url: 'https://files.catbox.moe/1n2qlq.mp3',
     duration: 190.093061,
     metaData: {
@@ -18,6 +45,15 @@ export const initialTracks = [
     metaData: {
       title: 'CHULO EDIT',
       artist: 'SLACK 1NE',
+      album,
+    },
+  },
+  {
+    url: 'https://files.catbox.moe/2i6cf8.mp3',
+    duration: 190.093061,
+    metaData: {
+      title: 'Barbie Dolls',
+      artist: 'Felicia Arts',
       album,
     },
   },
@@ -54,6 +90,15 @@ export const initialTracks = [
     metaData: {
       title: 'Facta',
       artist: 'Slope',
+      album,
+    },
+  },
+  {
+    url: 'https://files.catbox.moe/taiajc.mp3',
+    duration: 190.093061,
+    metaData: {
+      title: 'True Romance',
+      artist: 'D-Bridge',
       album,
     },
   },
