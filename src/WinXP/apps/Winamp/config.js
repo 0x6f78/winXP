@@ -4,29 +4,29 @@ const album = 'netBloc Vol. 24: tiuqottigeloot';
 
 export const initialTracks = [
   {
-    url: 'https://files.catbox.moe/vtkmo6.mp3',
+    url: 'https://files.catbox.moe/nxpr8k.mp3',
     duration: 190.093061,
     metaData: {
-      title: 'You think you know me',
-      artist: 'Xiorro',
+      title: '916',
+      artist: 'Aarayáh',
       album,
     },
   },
   {
-    url: 'https://files.catbox.moe/3nrdd8.mp3',
+    url: 'https://files.catbox.moe/ub6chj.mp3',
     duration: 190.093061,
     metaData: {
-      title: 'Vertigo',
-      artist: 'Uväll',
+      title: 'Breach Of Trust (Original Mix)',
+      artist: 'Dog On Acid',
       album,
     },
   },
   {
-    url: 'https://files.catbox.moe/4vlvpz.mp3',
+    url: 'https://files.catbox.moe/5v1tyy.mp3',
     duration: 190.093061,
     metaData: {
-      title: 'Axt',
-      artist: 'Jan Zimmerman',
+      title: 'Vapourise',
+      artist: 'Sub Focus',
       album,
     },
   },

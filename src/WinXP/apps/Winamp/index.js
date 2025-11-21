@@ -12,10 +12,9 @@ function Winamp({ onClose, onMinimize }) {
     }
     webamp.current = new Webamp({
       initialTracks,
-      // initialSkin: {
-      // url:
-      //   'https://skins.webamp.org/skin/971c1afc05b56f5160903d0748b73239/Deus_Ex_Amp_by_AJ.wsz', // Add skins in the future
-      // },
+      //   initialSkin: {
+      //   url: '/winampskin.wsz', // Add skins in the future
+      //   },
     });
     webamp.current.renderWhenReady(target).then(() => {
       target.appendChild(document.querySelector('#webamp'));
