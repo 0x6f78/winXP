@@ -237,12 +237,12 @@ function Projects({ onClose }) {
                   />
                   <div className="com__content__right__card__img-container">
                     <a
-                      href="https://www.ossm.tech"
+                      href="https://github.com/0x6f78/OSSM-Mods"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <div className="com__content__right__card__text">
-                        OSSM
+                        OSSM MODS
                       </div>
                     </a>
                   </div>
